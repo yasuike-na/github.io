@@ -85,6 +85,7 @@ self.addEventListener('fetch', function(event) {
         })
     );
   }else{
+  
     //オフラインのときの制御
     event.respondWith(
       caches.match(event.request)
