@@ -1,0 +1,658 @@
+/* 20191217155150 */
+
+html, body {
+	font-family: sans-serif;		/* どの環境でもそれなりのフォントです */
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	height: 100%;
+	touch-action: manipulation;		/* NG Safariのダブルタップズーム抑止 */
+	backface-visibility: hidden;	/* NG 描画速度向上策 */
+	-webkit-backface-visibility:hidden;
+	-webkit-touch-callout: none;	/* リンク長押しのポップアップを無効化 */
+	-webkit-user-select: none;		/* テキスト長押しの選択ボックスを無効化 */
+}
+
+#whole {
+	position: fixed;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.OVERLAY {
+	z-index:9998;
+	position:fixed;
+	width:100%;
+	background-color:rgba(0,0,0,0.5);
+}
+#MASK1_top {
+	top:0;
+	left:0;
+	width: 100%;
+	height:0;
+}
+#MASK1_right {
+	top:0;
+	left:100%;
+	width: 100%;
+	height:100%;
+}
+#MASK1_bottom {
+	top:100%;
+	left:0;
+	width: 100%;
+	height:100%;
+}
+
+
+#left {
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	float: left;
+	width: 30%;
+	height: 100%;
+	position: relative;
+}
+
+#left-top {
+	margin: 0px;
+	padding: 0px;
+	background: #D3FFD3;
+	color: #000;
+	height: 7%;
+}
+
+#left-upper {
+	/*will-change: fransform;*/				/* NG */
+	/*overscroll-behavior: none;*/			/* NG Safariスクロール端でのビヨヨンを無効化 */
+	/*-webkit-overflow-scrolling: touch;*/	/* NG Safariにプチフリバグあり */
+	margin: 0px;
+	padding: 0px;
+/*	height: 60%;*/
+	width: 100%;
+}
+#left-upper-inner {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+#panel1 {
+/*	height: 60%;*/
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+#panel1::-webkit-scrollbar {
+	display: none;
+}
+
+#panel1-inner {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+}
+
+#panel2 {
+/*	height: 60%;*/
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+#panel2::-webkit-scrollbar {
+	display: none;
+}
+
+#panel2-inner {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+}
+
+#MENU_date_label, #MENU_place_label, #MENU_damage_lists_label, #MENU_damage_comment_label, #MENU_damage_width_label, #MENU_repair_lists_label, #MENU_repair_comment_label, #MENU_repair_width_label, #MENU_repair_status_label {
+	background: #EFEFF4;
+}
+
+#MENU_date_value, #MENU_place_value, #MENU_damage_lists_edit, #MENU_damage_lists_value, #MENU_damage_comment_value, #MENU_damage_width_value, #MENU_repair_lists_value, #MENU_repair_comment_value, #MENU_repair_width_value, #MENU_repair_status_value, #MENU_damage_kilnwidth, #MENU_repair_kilnwidth {
+	cursor: pointer;
+}
+
+
+#MENU_date_row {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+#MENU_date_label {
+	display: table-cell;
+	text-align: left;
+	padding-left: 15px;
+	vertical-align: top;
+	padding-top: 5px;
+	width: 35%;
+}
+#MENU_date_picker {
+	display: table-cell;
+	min-width: 100%;
+	width: 65%;
+}
+
+#MENU_place_row {
+	display: table;
+	table-layout: fixed;
+    width: 100%;
+}
+#MENU_place_label {
+	display: table-cell;
+	text-align: left;
+	padding-left: 15px;
+	vertical-align: top;
+	padding-top: 5px;
+	width: 35%;
+	height: 100%;
+}
+#MENU_place_value {
+	display: table-cell;
+	text-align: left;
+	padding-left: 5px;
+	vertical-align: top;
+	padding-top: 5px;
+	line-height: 100%;
+	color: blue;
+	width: 65%;
+	height: 100%;
+}
+
+#DATE_picker{
+	/*-webkit-appearance: none;*/	/* NG */
+	color: blue;
+	font-size: 20px;
+	width: calc(19.5vw - 3px);
+}
+
+#MENU_damage_pad_area{
+	height:100%;
+	width: 100%;
+}
+
+#MENU_repair_pad_area{
+	height:100%;
+	width: 100%;
+}
+
+
+#left-lower {
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	height: 28%;
+	width: 100%;
+	position: relative;
+}
+#MAP_wall {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+#MAP_svg {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%
+}
+#MAP_scope {
+	margin: 0px;
+	padding: 0px;
+	x: 0;
+	y: 0;
+	height: 100%;
+	width: 100%;
+	fill: red;
+	fill-opacity: 0.05;
+	stroke: red;
+	stroke-width: 1;
+}
+
+#left-bottom {
+	margin: 0px;
+	padding: 0px;
+	background: #D3FFD3;
+	color: #000;
+	height: 7%;
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+	/* 前面 START */
+	position: absolute;
+	z-index: 99; /* 値が大きいものほど前面（手前）に表示される */
+	/* 前面 END */
+}
+#MAINMENU_cell {
+	display: table-cell;
+	text-align: left;
+	padding-left: 15px;
+}
+#TGT_MAINMENU_icon {
+	height: 30px;
+}
+#SEARCH_home_cell {
+	display: table-cell;
+	text-align: right;
+	width: 15%;
+}
+#TGT_SEARCH_home_icon {
+	height: 25px;
+}
+#CAMERA_home_cell {
+	display: table-cell;
+	padding-right: 15px;
+	text-align: right;
+	width: 15%;
+}
+#CAMERA_home_icon {
+	height: 25px;
+}
+
+
+
+
+#right {
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	float: right;
+	width: 70%;
+	height: 100%;
+}
+
+#right-top {
+	margin: 0px;
+	padding: 0px;
+	background: #D3FFD3;
+	color: #000;
+	width: 100%;
+	height: 7%;
+	display: table;
+	table-layout: fixed;
+}
+#misc {
+	display: table-cell;
+	margin: 0px;
+	padding: 0px;
+}
+#TGT_GOHOME {
+	display: table-cell;
+	cursor: pointer;
+	margin: 0px;
+	padding: 0px;
+	color: blue;
+	text-align: right;
+	padding-right: 10px;
+	width: 10%;
+}
+#TGT_CLEAR {
+	display: table-cell;
+	cursor: pointer;
+	margin: 0px;
+	padding: 0px;
+	color: blue;
+	text-align: right;
+	padding-right: 10px;
+	width: 10%;
+}
+#SAVE {
+	display: table-cell;
+	margin: 0px;
+	padding: 0px;
+	color: blue;
+	text-align: right;
+	padding-right: 10px;
+	width: 10%;
+}
+
+#dummy1 {	/* font-size=0を挟む事で、inline-block（SCALEL, ZOOMER, SCALER）間の隙間を防止している */
+	margin: 0px;
+	padding: 0px;
+	color: #fff;
+	width: 100%;
+	height: 83%;
+	font-size: 0;
+}
+#SCALEL {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	background: #fff;
+	color: #000;
+	width: 3%;
+	height: 100%;
+	font-size: 20px;
+}
+#SCALEL_svg {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 500%;
+}
+
+#ZOOMER {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	width: 94%;
+	height: 100%;
+	position: relative;
+}
+#ZOOMER_wall {
+	height: 100%;
+}
+#ZOOMER_svg {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+#ZOOMER_wall {
+	height: 100%;
+}
+#SCALER {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	background: #fff;
+	color: #000;
+	width: 3%;
+	height: 100%;
+	font-size: 17px;
+}
+#SCALER_svg {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 500%;
+}
+#dummy2 {	/* font-size=0を挟む事で、inline-block（dummy2_1, SCALEB, dummy2_2）間の隙間を防止している */
+	margin: 0px;
+	padding: 0px;
+	color: #fff;
+	width: 100%;
+	height: 3%;
+	font-size: 0;
+}
+#dummy2_1 {
+	display: inline-block;
+	width: 3%;
+	height: 100%;
+}
+#SCALEB {
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	background: #fff;
+	color: #000;
+	width: 94%;
+	height: 100%;
+	font-size: 17px;
+}
+#SCALEB_svg {
+	margin: 0px;
+	padding: 0px;
+	width: 1000%;
+	height: 100%;
+}
+#dummy2_2 {
+	display: inline-block;
+	width: 3%;
+	height: 100%;
+}
+
+#right-bottom {
+	
+	margin: 0px;
+	padding: 0px;
+	background: #D3FFD3;
+	color: #000;
+	width: 100%;
+	height: 7%;
+	font-size: 17px;
+	overflow: hidden;
+
+}
+
+#TGT_LOCK {
+	display: inline-block;
+	cursor: pointer;
+	/*display: table-cell;*/
+	width: 19%;
+	height: 100%;
+	padding-left: 15px;
+	text-align: left;
+	font-size: 17px;
+	color:blue;
+	overflow: hidden;
+}
+
+#DEFTYPE {
+	display: inline-block;
+	cursor: pointer;
+	/*display: table-cell;*/
+	width: 35%;
+	height: 100%;
+	text-align: left;
+	font-size: 17px;
+	color: blue;
+	overflow: hidden;
+}
+
+#DEFTYPE_ROTEI {
+	display: inline-block;
+	cursor: pointer;
+	/*display: table-cell;*/
+	width: 32%;
+	height: 100%;
+	text-align: left;
+	font-size: 17px;
+	overflow: hidden;
+}
+#PHOTO {
+	display: inline-block;
+	cursor: pointer;
+	/*display: table-cell;*/
+	width: 8%;
+	height: 100%;
+	text-align: right;
+	padding-right: 0px;
+	font-size: 17px;
+	color:blue;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+#PAGE_deftype {
+	position: absolute;
+	top: 2000px;
+	left: 45%;
+	margin: 10px;
+	padding: 10px;
+	width: 200px;
+	border: 1px skyblue solid;
+	border-radius: 12px;    /* 枠線の角を丸くする */
+	background: #fff;
+	transition: all 300ms 0s ease;
+}
+/* 吹き出し用三角表示(▽) */
+#PAGE_deftype::before{
+	content: '';
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	left: 20px;
+	bottom: -20px;
+	border-top: 20px solid skyblue;
+	border-right: 20px solid transparent;
+	border-left: 20px solid transparent;
+}
+  #PAGE_deftype::after{
+	content: '';
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	left: 20px;
+	bottom: -19px;
+	border-top: 20px solid #fff;
+	border-right: 20px solid transparent;
+	border-left: 20px solid transparent;
+}
+.DEFTYPE_slidein {
+	transform: translateY(calc(-100% - 60px));
+}
+
+
+#PAGE_deftype_rotei {
+	position: absolute;
+	top: 2000px;
+	left: 70%;
+	margin: 10px;
+	padding: 10px;
+	width: 200px;
+	border: 1px skyblue solid;
+	border-radius: 12px;    /* 枠線の角を丸くする */
+	background: #fff;
+	transition: all 300ms 0s ease;
+}
+/* 吹き出し用三角表示(▽) */
+#PAGE_deftype_rotei::before{
+	content: '';
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	left: 20px;
+	bottom: -20px;
+	border-top: 20px solid skyblue;
+	border-right: 20px solid transparent;
+	border-left: 20px solid transparent;
+}
+  #PAGE_deftype_rotei::after{
+	content: '';
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	left: 20px;
+	bottom: -19px;
+	border-top: 20px solid #fff;
+	border-right: 20px solid transparent;
+	border-left: 20px solid transparent;
+}
+
+.DEFTYPE_rotei_slidein {
+	transform: translateY(calc(-100% - 60px));
+}
+
+
+/* 損傷入力,補修入力切替 タブ START */
+.tab_wrap{width:100%; margin:0px auto;}
+input[type="radio"]{display:none;}
+.tab_area{
+	font-size:0;
+	margin:0 0px;
+}
+
+.tab_area label{
+	width:48%;
+	/* margin:0% 1% 0% 1%; */
+	display:inline-block;
+	padding:12px 0;
+	color:blue;
+	background:#ddd;
+	text-align:center;
+	font-size:13px;
+	cursor:pointer;
+	transition:ease 0.2s opacity;
+	border-top-right-radius: 20px;    /* 枠線の角を丸くする */
+	border-top-left-radius: 20px;    /* 枠線の角を丸くする */
+
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	/* border-bottom: 1px solid #ddd; */
+
+}
+
+/*
+.tab_area label:hover{
+	opacity:0.5;
+}
+*/
+#MENU_pad{
+	height: 3%;
+	background:#D3FFD3;
+}
+.panel_area{
+	background:#D3FFD3;
+}
+.tab_panel{
+	width:100%;
+	padding:0px 0;
+	display:none;
+}
+.tab_panel p{
+	font-size:14px;
+	letter-spacing:1px;
+	text-align:center;
+}
+ 
+/* #tab1:checked ~ .tab_area .tab1_label{ */
+/* 	background:#D3FFD3;  */
+/* 	color:blue; */
+/* 	border-top: 1px solid dimgray; */
+/* 	border-left: 1px solid dimgray; */
+/* 	border-right: 1px solid dimgray; */
+/* 	// border-bottom: 1px solid dimgray; */
+/* } */
+/* #tab1:checked ~ .panel_area #panel1{ */
+/* 	display:block; */
+/* 	// border-bottom: 1px solid dimgray; */
+/* } */
+/* #tab2:checked ~ .tab_area .tab2_label{ */
+/* 	background:#ccccff; */
+/* 	color:blue; */
+/* 	border-top: 1px solid dimgray; */
+/* 	border-left: 1px solid dimgray; */
+/* 	border-right: 1px solid dimgray; */
+/* } */
+/* #tab2:checked ~ .panel_area #panel2{ */
+/* 	display:block; */
+/* } */
+/* 損傷入力,補修入力切替 タブ END */

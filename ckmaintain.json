@@ -1,0 +1,230 @@
+{
+  "AREA" : "君津",
+  "DAMAGE_types" : [
+    { 
+      "name" : "単段破孔",
+      "color" : "#1414FF",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "多段破孔",
+      "color" : "#D814FF",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "煉瓦欠損",
+      "color" : "#DE7A16",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "任意開口",
+      "color" : "#770FFF",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "煉瓦陥没",
+      "color" : "#FF82A3",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "窯口狭少化",
+      "color" : "#7D19FF",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "1本亀裂",
+      "color" : "#FF0B03",
+      "TILE_no" : "1"
+    },
+    { 
+      "name" : "ハンマー亀裂 右",
+      "color" : "#FF0B03",
+      "TILE_no" : "5"
+    },
+    { 
+      "name" : "2本亀裂 右",
+      "color" : "#FF1303",
+      "TILE_no" : "3"
+    },
+    { 
+      "name" : "2本亀裂 左",
+      "color" : "#FF0841",
+      "TILE_no" : "2"
+    },
+    { 
+      "name" : "2本亀裂 左右",
+      "color" : "#FF032D",
+      "TILE_no" : "4"
+    },
+    { 
+      "name" : "炉壁肌荒れ",
+      "color" : "#35DE0B",
+      "TILE_no" : "0"
+    }
+  ],
+
+  "DAMAGE_rotei_types" : [
+    { 
+      "name" : "大",
+      "color" : "#FF683A",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "中",
+      "color" : "#46FF4C",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "小",
+      "color" : "#5719FF",
+      "TILE_no" : "0"
+    }
+  ],
+
+  "REPAIR_types" : [
+    { 
+      "name" : "溶射",
+      "color" : "#FF4912",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "ピース煉瓦溶射補修",
+      "color" : "#45FF17",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "モルタルパッチンク",
+      "color" : "#FF1492",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "セミドライ吹付け",
+      "color" : "#150DFF",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "部分差替",
+      "color" : "#FF9568",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "広範囲部分差替",
+      "color" : "#FF96E7",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "窯口切削",
+      "color" : "#1414FF",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "DOC補修",
+      "color" : "#C1FF30",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "簡易熱間積替",
+      "color" : "#7A70FF",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "天井残し熱間積替",
+      "color" : "#FF99A7",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "天井解体熱間積替",
+      "color" : "#787878",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "その他",
+      "color" : "#B5FFBC",
+      "TILE_no" : "0"
+    }
+  ],
+
+  "REPAIR_rotei_types" : [
+    { 
+      "name" : "炉底補修材",
+      "color" : "#FF1940",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "炉底溶射",
+      "color" : "#3AFF1C",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "炉底流し込み",
+      "color" : "#61EFFF",
+      "TILE_no" : "0"
+    },
+    { 
+      "name" : "煉瓦積替え",
+      "color" : "#FF47A3",
+      "TILE_no" : "0"
+    }
+  ],
+
+  "TILE_pattern" : [
+    { 
+       "no": "0",
+       "xpoint": [ "1.0" ],
+       "onof": [ "true" ]
+    },
+    { 
+       "no": "1",
+       "xpoint": [ "0.45", "0.1", "0.45" ],
+       "onof": [ "false", "true", "false" ]
+    },
+    { 
+       "no": "2",
+       "xpoint": [ "0.2", "0.1" ],
+       "onof": [ "false", "true" ]
+    },
+    { 
+       "no": "3",
+       "xpoint": [ "0.7", "0.1" ],
+       "onof": [ "false", "true" ]
+    },
+    { 
+       "no": "4",
+       "xpoint": [ "0.2", "0.1", "0.4","0.1","0.2" ],
+       "onof": [ "false", "true", "false","true","false" ]
+    },
+    { 
+       "no": "5",
+       "xpoint": [ "0.9", "0.1" ],
+       "onof": [ "false", "true" ]
+    }
+  ],
+
+  "REPAIR_material" : [
+    { 
+       "no": "1",
+       "name": "珪石煉瓦"
+    },
+    { 
+       "no": "2",
+       "name": "溶解シリカ"
+    },
+    { 
+       "no": "3",
+       "name": "HRS-2"
+    },
+    { 
+       "no": "4",
+       "name": "HRS-8"
+    },
+    { 
+       "no": "5",
+       "name": "GR-60"
+    },
+    { 
+       "no": "6",
+       "name": "SPS-2"
+    }
+  ]
+
+}

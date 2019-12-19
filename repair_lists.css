@@ -1,0 +1,158 @@
+/* 20191217155150 */
+/*********************************************************************/
+/* 補修箇所リスト画面                                                   */
+/*********************************************************************/
+/* ボタンの選択枠を消す */
+button:focus {
+	outline:0;
+}
+
+#MENU_repair_lists_value {
+	margin: 0px;
+	padding: 0px;
+	width: 130%;
+	height: 10%;
+	background: white;
+	color: blue;
+	border: 1px solid #EFEFF4;
+}
+
+#MENU_repair_lists_value_cell1 {
+	text-align: center;
+	vertical-align: middle;
+	width: 5%;
+	height: 10px;
+}
+
+
+#MENU_REPAIR_lists_table{
+	height:100%;
+	width: 120%;
+	display: table;
+	table-layout: fixed;
+}
+
+#MENU_REPAIR_lists_col1 {
+	display: table-cell;
+	vertical-align: middle;
+	/*text-align: center;*/
+	height:100%;
+	width: 80%;
+	/*border: 1px solid red;*/
+	transition: all 1000ms 0s ease;
+}
+
+#MENU_REPAIR_lists_col1-1 {
+	float: left;
+
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+
+	/* vertical-align: middle; */
+	/* text-align: center; */
+	height:50px;
+	width: 13%;
+	/* border: 1px solid red; */
+}
+#REPAIR_lists_edit_icon {
+	background: white;
+	border-style: none;
+	height:100%;
+	width: 100%;
+}
+
+#REPAIR_lists_edit_png {
+	height:60%;
+	width: 92%;
+}
+
+#MENU_REPAIR_lists_col1-2 {
+	float: left;
+
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+
+	height:50px;
+	width: 10%;
+	/* border: 1px solid red; */
+}
+#Repair_listNo {
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: left;
+	/* 中央寄せ-E */
+	/* border: 1px solid blue; */
+}
+
+#MENU_REPAIR_lists_col1-3 {
+	float: left;
+	vertical-align: middle;
+	text-align: center;
+	height:50px;
+	width: 70%;
+	/* border: 1px solid blue; */
+}
+#MENU_repairType {
+	width: 100%;
+	text-align: left;
+	/*border: 1px solid blue; */
+}
+
+#MENU_repairPoints {
+	width: 100%;
+	text-align: left;
+
+	/* …を付ける */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis; /*Safari用*/
+	-o-text-overflow: ellipsis; /*Opera用*/
+	/* border: 1px solid blue; */
+}	
+
+
+#MENU_REPAIR_lists_col2 {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+/*	height:100%;*/
+	width: 15%;
+	transition: all 1000ms 0s ease;
+}
+
+#REPAIR_lists_value_del {
+	text-align: center;
+	vertical-align: middle;
+	height:100%;
+	width: 100%;
+	color: white;
+	background: red;
+
+	font-size: 17px;
+	border: 1px solid white;
+}
+
+
+
+.Repair_del_slidein {
+	transform: translateX(-230%);
+}
+
+.Repair_stop_slidein {
+	transform: translateX(-15%);
+}
+
+
+/* safariでボタンが丸くなるので四角にする */
+input[type="button"] {
+	-webkit-appearance: none;
+	border-radius: 0;
+}

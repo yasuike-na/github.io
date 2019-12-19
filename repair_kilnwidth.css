@@ -1,0 +1,341 @@
+/* 20191217155150 */
+/*********************************************************************/
+/* 補修窯幅入力画面                                                   */
+/*********************************************************************/
+#MENU_repair_kilnwidth_table {
+	margin: 0px;
+	padding: 0px;
+	width: 140%;
+	height: 10%;
+	background: white;
+	color: blue;
+	border: 1px solid #EFEFF4;
+}
+
+#MENU_repair_kilnwidth_table_cell1 {
+	text-align: center;
+	vertical-align: middle;
+	width: 5%;
+	height: 10px;
+}
+
+#MENU_repair_kilnwidth{
+/*	height:100%; */
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+
+#MENU_repair_kilnwidth_col1 {
+	display: table-cell;
+	vertical-align: middle;
+	/*text-align: center;*/
+	height:100%;
+	width: 120%;
+	/*border: 1px solid red;*/
+	transition: all 1000ms 0s ease;
+}
+#REPAIR_kilnwidth_edit {
+	float: left;
+
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+
+	height:50px;
+	width: 15%;
+	/* border: 1px solid blue; */
+}
+
+#REPAIR_kilnwidth_edit_icon {
+	background: white;
+	border-style: none;
+	height:100%;
+	width: 100%;
+}
+
+#REPAIR_kilnwidth_edit_png {
+	height:60%;
+	width: 90%;
+}
+
+#MENU_repair_kilnwidth_value {
+	float: left;
+
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	/* 中央寄せ-E */
+
+	height:50px;
+	width: 85%;
+	/* border: 1px solid blue; */
+}
+
+
+#MENU_repair_kilnwidth_col2 {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+/*	height:100%;*/
+	width: 25%;
+	transition: all 1000ms 0s ease;
+}
+
+
+#REPAIR_kilnwidth_value_del {
+	text-align: center;
+	vertical-align: middle;
+	height:100%;
+	width: 100%;
+	color: white;
+	background: red;
+
+	font-size: 17px;
+	border: 1px solid white;
+}
+
+
+#MENU_repair_kilnwidth_add {
+	margin: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+/*	padding-right: 10px; */
+	padding-left: 10px;
+	text-align: left;
+	vertical-align: middle;
+	background: white;
+	color: blue;
+/*	width: 5%; */
+/*	height: 10px; */
+/*	border: 10px solid darkblue; */
+}
+#MENU_repair_kilnwidth_table_value{
+	margin: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+/*	padding-right: 10px; */
+	padding-left: 10px;
+	text-align: left;
+	vertical-align: middle;
+/*	width: 5%; */
+/*	height: 10px; */
+/*	border: 10px solid darkblue; */
+}
+
+.REPAIR_kilnwidth_del_slidein {
+	transform: translateX(-170%);
+}
+
+.REPAIR_kilnwidth_stop_slidein {
+	transform: translateX(-14%);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#PAGE_repair_kilnwidth {
+	position: absolute;
+	top: 0px;
+	left: 1000px;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	background: #fff;
+	color: #000;
+	transition: all 300ms 0s ease;
+}
+#REPAIR_kilnwidth_top{
+	margin: 0px;
+	padding: 0px;
+	background: #ccccff;
+	color: #000;
+	height: 7%;
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+#REPAIR_kilnwidth_back{
+	display: inline-block;
+	/* display: table-cell; */
+	width: 18%;
+
+	text-align: left;
+	color: blue;
+	cursor: pointer;
+}
+#REPAIR_kilnwidth_title{
+	display: inline-block;
+	/* display: table-cell; */
+	width: 54%;
+	text-align: center;
+}
+#REPAIR_kilnwidth_cancel{
+	display: inline-block;
+	/* display: table-cell; */
+
+	width: 28%;
+
+	text-align: right;
+	color: blue;
+	cursor: pointer;
+}
+#REPAIR_kilnwidth_body{
+	margin: 0px;
+	padding: 0px;
+	height: 86%;
+/*	table-layout: fixed; */
+/*	text-align: center; */
+}
+#REPAIR_kilnwidth_bottom{
+	margin: 0px;
+	padding: 0px;
+	background: #ccccff;
+	color: #000;
+	height: 7%;
+}
+
+
+#REPAIR_kilnwidth_row1{
+	height: 10%;
+	width: 90%;
+	display: table;
+	table-layout: fixed;
+}
+#REPAIR_kilnwidth_body_title{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+	width: 100%;
+}
+
+#REPAIR_kilnwidth_row2{
+	height: 10%;
+	width: 90%;
+	display: table;
+	table-layout: fixed;
+}
+#REPAIR_kilnwidth_furyu_label{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+}
+#REPAIR_kilnwidth_furyu_value{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+}
+#REPAIR_kilnwidth_furyu_in{
+	padding-left: 10px;
+	width: 80%;
+	color: blue;
+	border: 1px solid blue;
+	font-size: 17px;
+}
+
+#REPAIR_kilnwidth_row3{
+	height: 10%;
+	width: 90%;
+	display: table;
+	table-layout: fixed;
+}
+#REPAIR_kilnwidth_dansu_label{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+}
+#REPAIR_kilnwidth_dansu_value{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+}
+#REPAIR_kilnwidth_dansu_in{
+	padding-left: 10px;
+	width: 80%;
+	color: blue;
+	border: 1px solid blue;
+	font-size: 17px;
+}
+
+#REPAIR_kilnwidth_row4{
+	height: 10%;
+	width: 90%;
+	display: table;
+	table-layout: fixed;
+}
+#REPAIR_kilnwidth_sokutei_label{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+}
+#REPAIR_kilnwidth_sokutei_value{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+}
+#REPAIR_kilnwidth_sokutei_in{
+	padding-left: 10px;
+	width: 80%;
+	color: blue;
+	border: 1px solid blue;
+	font-size: 17px;
+}
+
+
+
+#REPAIR_kilnwidth_csps{
+	margin: 0px;
+	padding: 0px;
+	height: 30px;
+	width: 80%;
+	display: table;
+	table-layout: fixed;
+	padding-left: 35px;
+}
+
+
+#REPAIR_kilnwidth_cs {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	border-top: 1px solid blue;
+	border-left: 1px solid blue;
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+
+	border-top-left-radius: 7px;    /* 枠線の角を丸くする */
+	border-bottom-left-radius: 7px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+
+}
+#REPAIR_kilnwidth_ps {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	border-top: 1px solid blue;
+	/* border-left: 1px solid blue; */
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+
+	border-top-right-radius: 7px;    /* 枠線の角を丸くする */
+	border-bottom-right-radius: 7px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+}
+
+
+
+.REPAIR_kilnwidth_slidein {
+	transform: translateX(-100%);
+}
+

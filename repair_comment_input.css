@@ -1,0 +1,82 @@
+/* 20191217155150 */
+/*********************************************************************/
+/* 補修コメント入力画面                                                */
+/*********************************************************************/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#MENU_repair_comment_value{
+	padding-top: 10px;
+	padding-bottom: 10px;
+/*	padding-right: 10px; */
+	padding-left: 10px;
+	color: blue;
+	background: white;
+}
+
+#PAGE_repair_comment {
+	position: absolute;
+	top: 0px;
+	left: 1000px;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	background: #fff;
+	color: #000;
+	transition: all 300ms 0s ease;
+}
+#REPAIR_comment_top{
+	margin: 0px;
+	padding: 0px;
+	background: #ccccff;
+	color: #000;
+	height: 7%;
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+#REPAIR_comment_back{
+	display: table-cell;
+	text-align: left;
+	color: blue;
+	cursor: pointer;
+}
+#REPAIR_comment_title{
+	display: table-cell;
+	text-align: center;
+}
+#REPAIR_comment_cancel{
+	display: table-cell;
+	text-align: right;
+	color: blue;
+	cursor: pointer;
+/*	display: inline-block; */
+}
+#REPAIR_comment_body{
+	margin: 0px;
+	padding: 0px;
+	height: 86%;
+	table-layout: fixed;
+	text-align: center;
+}
+#REPAIR_comment_bottom{
+	margin: 0px;
+	padding: 0px;
+	background: #ccccff;
+	color: #000;
+	height: 7%;
+}
+
+#REPAIR_comment_in{
+	border: 1px solid blue;
+	font-size: 17px;
+}
+
+
+.REPAIR_comment_slidein {
+	transform: translateX(-100%);
+}

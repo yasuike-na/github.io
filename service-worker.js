@@ -1,11 +1,51 @@
-var CACHE_NAME  = "fb-cache-v8-0";
+//20191217155150
+
+var CACHE_NAME  = "CKMAINTAIN-ver000.08";
 
 var urlsToCache = [
+    "camera.js",
+    "camera-icon.png",
+    "ckmaintain.css",
+    "ckmaintain.html",
+    "ckmaintain.js",
+    "ckmaintain.json",
+    "damage_comment_input.css",
+    "damage_comment_input.js",
+    "damage_end_input.css",
+    "damage_end_input.js",
+    "damage_kilnwidth.css",
+    "damage_kilnwidth.js",
+    "damage_lists.css",
+    "damage_lists.js",
+	"icon-114.png",
+	"icon-120.png",
+	"icon-144.png",
+	"icon-152.png",
     "icon-192.png",
     "icon-256.png",
-    "p.html",
-    "pwa-logo.svg",
-    "test.html"
+    "indexedDB.js",
+    "magniglass.png",
+    "mainmenu.css",
+    "place.css",
+    "place.js",
+    "repair_comment_input.css",
+    "repair_comment_input.js",
+    "repair_end_info.css",
+    "repair_end_info.js",
+    "repair_end_input.css",
+    "repair_end_input.js",
+    "repair_kilnwidth.css",
+    "repair_kilnwidth.js",
+    "repair_lists.css",
+    "repair_lists.js",
+    "repair_status.css",
+    "repair_status.js",
+    "search.css",
+    "search.js",
+    "share.png",
+	"stop.png",
+    "wallpaper.bmp",
+    "wallpaper.js"
 ];
 
 const CACHE_KEYS = [
@@ -85,7 +125,6 @@ self.addEventListener('fetch', function(event) {
         })
     );
   }else{
-  
     //オフラインのときの制御
     event.respondWith(
       caches.match(event.request)

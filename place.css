@@ -1,0 +1,247 @@
+/* 20191217155150 */
+/*********************************************************************/
+/* 検査箇所入力画面                                                  */
+/*********************************************************************/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#PAGE_place {
+	position: absolute;
+	top: 0px;
+	left: 1000px;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	background: #fff;
+	color: #000;
+	transition: all 300ms 0s ease;
+}
+#PLACE_top{
+	margin: 0px;
+	padding: 0px;
+	background: #D3FFD3;
+	color: #000;
+	height: 7%;
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+#PLACE_back{
+	display: inline-block;
+	/* display: table-cell; */
+	width: 20%;
+
+	text-align: left;
+	color: blue;
+	cursor: pointer;
+}
+#PLACE_title{
+	display: inline-block;
+	/* display: table-cell; */
+	width: 50%;
+	text-align: center;
+}
+#PLACE_cancel{
+	display: inline-block;
+	/* display: table-cell; */
+
+	width: 30%;
+
+	text-align: right;
+	color: blue;
+	cursor: pointer;
+}
+#PLACE_body{
+	margin: 0px;
+	padding: 0px;
+	height: 86%;
+}
+#PLACE_bottom{
+	margin: 0px;
+	padding: 0px;
+	background: #D3FFD3;
+	color: #000;
+	height: 7%;
+}
+
+
+
+#PLACE_rodanno{
+	margin: 0px;
+	padding: 0px;
+	height: 50;
+	width: 90%;
+	display: table;
+	table-layout: fixed;
+	padding-left: 10px;
+}
+
+
+#PLACE_rodan1 {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	border-top: 1px solid blue;
+	border-left: 1px solid blue;
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+
+	border-top-left-radius: 7px;    /* 枠線の角を丸くする */
+	border-bottom-left-radius: 7px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+
+}
+#PLACE_rodan2 {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	border-top: 1px solid blue;
+	/* border-left: 1px solid blue; */
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+	background: white;
+	color: blue;
+}
+#PLACE_rodan3 {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	border-top: 1px solid blue;
+	/* border-left: 1px solid blue; */
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+	background: white;
+	color: blue;
+}
+#PLACE_rodan4 {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	border-top: 1px solid blue;
+	/* border-left: 1px solid blue; */
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+	background: white;
+	color: blue;
+}
+#PLACE_rodan5 {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	border-top: 1px solid blue;
+	/* border-left: 1px solid blue; */
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+	border-top-right-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-right-radius: 5px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+}
+
+
+
+#PLACE_tanka{
+	margin: 0px;
+	padding: 0px;
+	height: 10%;
+	width: 90%;
+	/* display: table; */
+	/* table-layout: fixed; */
+}
+
+#PLACE_tankano {
+	float: left;
+	/* display: table-cell; */
+	vertical-align: middle;
+	text-align: left;
+
+	background: white;
+	color: black;
+	height: 100%;
+	width: 40%;
+
+}
+
+
+#PLACE_tankaval {
+	/* display: table-cell; */
+	vertical-align: middle;
+	text-align: center;
+
+	/* border: 1px solid blue; */
+	background: white;
+	color: blue;
+	height: 100%;
+	width: 100%;
+	font-size   : 100%;
+}
+
+#PLACE_tankaval_sel {
+	margin: 0px;
+	padding-left: 30px;
+	border: 1px solid blue;
+	background: white;
+	color: blue;
+	height: 70%;
+	width: 60%;
+	font-size   : 20px;
+}
+
+.PLACE_tankaval_class select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	color: blue;
+}
+
+#PLACE_wakamatu{
+	margin: 0px;
+	padding: 0px;
+	height: 50;
+	width: 90%;
+	display: table;
+	table-layout: fixed;
+	padding-left: 10px;
+}
+
+#PLACE_wka {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	border-top: 1px solid blue;
+	border-left: 1px solid blue;
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+	border-top-left-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-left-radius: 5px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+
+}
+#PLACE_matu {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	border-top: 1px solid blue;
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+	border-top-right-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-right-radius: 5px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+}
+.PLACE_slidein {
+	transform: translateX(-100%);
+}

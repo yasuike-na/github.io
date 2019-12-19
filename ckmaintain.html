@@ -1,0 +1,824 @@
+<!-- 20191217155150 -->
+
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	
+	<!-- NG Safariのみ、PWA化の際にmanifest.jsonで指定した内容が反映されない事への対策 -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon" sizes="114x114" href="icon-114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="icon-120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="icon-144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="icon-152.png" />
+	<link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+	<link rel="apple-touch-icon" sizes="256x256" href="icon-256.png" />
+
+
+	<!-- ブラウザ自体のピンチインアウトを抑止（Safariには無効） -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- HTMLとCSSのキャッシュを削除 -->
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+
+	<title>コークス補修履歴</title>
+
+	<link rel="stylesheet" type="text/css" href="ckmaintain.css" />
+	<link rel="stylesheet" type="text/css" href="place.css" />
+	<link rel="stylesheet" type="text/css" href="damage_lists.css" />
+	<link rel="stylesheet" type="text/css" href="damage_end_input.css" />
+	<link rel="stylesheet" type="text/css" href="damage_comment_input.css" />
+	<link rel="stylesheet" type="text/css" href="damage_kilnwidth.css" />
+	<link rel="stylesheet" type="text/css" href="repair_lists.css" />
+	<link rel="stylesheet" type="text/css" href="repair_end_input.css" />
+	<link rel="stylesheet" type="text/css" href="repair_end_info.css" />
+	<link rel="stylesheet" type="text/css" href="repair_comment_input.css" />
+	<link rel="stylesheet" type="text/css" href="repair_kilnwidth.css" />
+	<link rel="stylesheet" type="text/css" href="repair_status.css" />
+	<link rel="stylesheet" type="text/css" href="search.css" />
+	<link rel="stylesheet" type="text/css" href="mainmenu.css" />
+
+	<link rel="manifest" href="manifest.json">
+	<script>
+	// ServiceWorkerが有効なら、ServiceWorker.js を登録します
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('./service-worker.js').then(function() { console.log('Service Worker Registered'); });
+	}
+	</script>
+</head>
+
+
+<body>
+	<script type="text/javascript" src="ckmaintain.js"></script>
+	<script type="text/javascript" src="indexedDB.js"></script>
+	<script type="text/javascript" src="camera.js"></script>
+	<script type="text/javascript" src="place.js"></script>
+	<script type="text/javascript" src="damage_lists.js"></script>
+	<script type="text/javascript" src="search.js"></script>
+	<script type="text/javascript" src="damage_end_input.js"></script>
+	<script type="text/javascript" src="damage_comment_input.js"></script>
+	<script type="text/javascript" src="damage_kilnwidth.js"></script>
+	<script type="text/javascript" src="repair_lists.js"></script>
+	<script type="text/javascript" src="repair_end_input.js"></script>
+	<script type="text/javascript" src="repair_end_info.js"></script>
+	<script type="text/javascript" src="repair_comment_input.js"></script>
+	<script type="text/javascript" src="repair_kilnwidth.js"></script>
+	<script type="text/javascript" src="repair_status.js"></script>
+	<script type="text/javascript" src="wallpaper.js"></script>
+
+
+
+<div id="PullToRefreshOfChromeFixer">
+<div id="whole">
+
+	<div class="OVERLAY" id="MASK1_top"></div>
+	<div class="OVERLAY" id="MASK1_right"></div>
+	<div class="OVERLAY" id="MASK1_bottom"></div>
+
+	<div id="left">
+		<div id="left-top">
+			<div id="relpos">　【損傷入力】 作業者(ID:nakai)</div>
+		</div>
+		<div id="left-upper">
+			<div id="MENU_date_row">
+				<div id="MENU_date_label">損傷確認日</div>
+				<div id="MENU_date_picker"><input id="DATE_picker" type="date"/></div>
+			</div>
+			<div id="MENU_place_row">
+				<div id="MENU_place_label">検査箇所<br>　</div>
+				<div id="MENU_place_value">未入力</div>
+			</div>
+			<div id="tab_wrap_" class="tab_wrap">
+				<input id="tab1" type="radio" name="tab_btn" checked>
+				<input id="tab2" type="radio" name="tab_btn">
+			 
+				<div id="tab_area_" class="tab_area">
+					<label id="tab1_label_" class="tab1_label" for="tab1">損傷入力</label>
+					<label id="tab2_label_" class="tab2_label" for="tab2">補修入力</label>
+				</div>
+				<div id="MENU_damage_lists_edit_row">
+					<div id="MENU_damage_lists_edit_pad">　</div>
+					<div id="MENU_damage_lists_edit">編集　</div>
+				</div>
+				<!--
+				<div id="MENU_pad">
+				</div>
+				-->
+				<div id="panel_area_" class="panel_area">
+					<div id="panel1" class="tab_panel">
+						<div id="MENU_damage_lists_label_row">
+							<div id="MENU_damage_lists_label">　損傷箇所リスト</div>
+						</div>
+						<div id="MENU_damage_lists">
+							<table id="MENU_damage_lists_value" rules="rows">
+							</table>
+						</div>
+						<!--
+						<div id="MENU_damage_lists_value"></div>
+						-->
+						<div id="MENU_damage_comment_label">　損傷コメント</div>
+						<div id="MENU_damage_comment_value">未入力</div>
+						<div id="MENU_damage_width_label">　現状窯幅</div>
+						<div id="MENU_damage_kilnwidth">
+							<table id="MENU_damage_kilnwidth_table" rules="rows">
+							</table>
+							<div id="MENU_damage_kilnwidth_add" name="add">追加...</div>
+						</div>
+						<!--
+						<div id="MENU_damage_width_value">　追加..<br>　</div>
+						-->
+						<div id="MENU_damage_pad_area">　</div>
+					</div>
+					<div id="panel2" class="tab_panel">
+						<div id="MENU_repair_lists_label_row">
+							<div id="MENU_repair_lists_label">　補修箇所リスト</div>
+						</div>
+						<div id="MENU_repair_lists">
+							<table id="MENU_repair_lists_value" rules="rows">
+							</table>
+						</div>
+						<div id="MENU_repair_comment_label">　補修コメント</div>
+						<div id="MENU_repair_comment_value">未入力</div>
+						<div id="MENU_repair_width_label">　補修窯幅</div>
+						<div id="MENU_repair_kilnwidth">
+							<table id="MENU_repair_kilnwidth_table" rules="rows">
+							</table>
+							<div id="MENU_repair_kilnwidth_add" name="add">追加...</div>
+						</div>
+						<!--
+							<div id="MENU_repair_width_value">　追加...</div>
+						-->
+						<div id="MENU_repair_status_label">　補修中設定</div>
+						<div id="MENU_repair_status_value">未入力</div>
+						<div id="MENU_repair_pad_area">　</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div id="left-lower">
+			<img src="wallpaper.bmp" id="MAP_wall" />
+			<svg id="MAP_svg" xmlns="http://www.w3.org/2000/svg">
+				<rect id="MAP_scope" />
+			</svg>
+		</div>
+		<div id="left-bottom">
+			<div id="MAINMENU_cell">
+				<label for="MAINMENU_start">
+					<img src="share.png" style="cursor: pointer;" id="TGT_MAINMENU_icon">
+				</label>
+				<input type="button" style="display:none" id="MAINMENU_start">
+			</div>
+			
+			<div id="SEARCH_home_cell">
+				<label for="SEARCH_home_start">
+					<img src="magniglass.png" style="cursor: pointer;" id="TGT_SEARCH_home_icon">
+				</label>
+				<input type="button" style="display:none" id="SEARCH_home_start">
+			</div>
+			
+			<div id="CAMERA_home_cell">
+				<label for="CAMERA_home_start">
+					<img src="camera-icon.png" style="cursor: pointer;" id="CAMERA_home_icon">
+				</label>
+				<input type="file" accept="image/*" capture="camera" style="display:none" id="CAMERA_home_start">
+			</div>
+			
+		</div>
+		
+		<!-- 検査箇所入力画面 (place.html) START-->
+		<div id="PAGE_place">
+			<div id="PLACE_top">
+				<div id="PLACE_back">＜完了<br>　</div>
+				<div id="PLACE_title"><b>検査日入力</b><br>　</div>
+				<div id="PLACE_cancel">キャンセル<br>　</div>
+			</div>
+			<div id="PLACE_body">
+				<div id="PLACE_area">　君津</div>
+				<div id="PLACE_pad">　</div>
+				<div id="PLACE_rodan">　炉団</div>
+				<div id="PLACE_pad">　</div>
+				<div id="PLACE_rodanno">
+					<div id="PLACE_rodan1">1</div>
+					<div id="PLACE_rodan2">2</div>
+					<div id="PLACE_rodan3">3</div>
+					<div id="PLACE_rodan4">4</div>
+					<div id="PLACE_rodan5">5</div>
+				</div>
+				<div id="PLACE_pad">　</div>
+				<div id="PLACE_tanka">
+					<div id="PLACE_tankano">　炭化室No.</div>
+					<div id="PLACE_tankaval" class="PLACE_tankaval_class">
+						<select id="PLACE_tankaval_sel">
+						</select>
+					</div>
+				</div>
+				<div id="PLACE_pad">　</div>
+				<div id="PLACE_wakamatu">
+					<div id="PLACE_wka" >若番</div>
+					<div id="PLACE_matu">末番</div>
+				</div>
+			</div>
+			<div id="PLACE_bottom">
+			</div>
+		</div>
+		<!-- 検査箇所入力画面 (place.html) END-->
+
+		<!-- 損傷箇所リスト完了入力画面 (damage_end_input.html) START-->
+		<div id="PAGE_damage_end">
+			<div id="DAMAGE_end_top">
+				<div id="DAMAGE_end_back">＜戻る<br>　</div>
+				<div id="DAMAGE_end_title">　</div>
+				<div id="DAMAGE_end_cancel">キャンセル<br>　</div>
+			</div>
+			<div id="DAMAGE_end_body">
+				<div id="DAMAGE_end_pad">　</div>
+				<div id="DAMAGE_end_damage_title">　</div>
+				<div id="DAMAGE_end_pad">　</div>
+				<div id="DAMAGE_end_pad">　</div>
+				<div id="DAMAGE_end_input">
+					<div id="DAMAGE_end_input_in">未</div>
+					<div id="DAMAGE_end_input_end">入力完了</div>
+				</div>
+				<div id="DAMAGE_end_pad">　</div>
+				<div id="DAMAGE_end_pad">　</div>
+				<div id="DAMAGE_end_photo">
+					<div id="DAMAGE_end_photo_view">撮影写真を見る</div>
+				</div>
+			</div>
+		<div id="DAMAGE_end_bottom">
+			</div>
+		</div>
+		<!-- 損傷箇所リスト完了入力画面 (damage_end_input.html) END-->
+
+		<!-- 損傷コメント入力画面 (damage_comment_input.html) START-->
+		<div id="PAGE_damage_comment">
+			<div id="DAMAGE_comment_top">
+				<div id="DAMAGE_comment_back">＜完了<br>　</div>
+				<div id="DAMAGE_comment_title"><b>損傷コメント入力</b></div>
+				<div id="DAMAGE_comment_cancel">キャンセル<br>　</div>
+			</div>
+			<div id="DAMAGE_comment_body">
+				<textarea id="DAMAGE_comment_in" rows="10" cols= "30"></textarea>
+			</div>
+			<div id="DAMAGE_comment_bottom">
+			</div>
+		</div>
+		<!-- 損傷コメント入力画面 (DAMAGE_comment.html) END-->
+
+		<!-- 現状窯幅入力画面 (damage_kilnwidth.html) START-->
+		<div id="PAGE_damage_kilnwidth">
+			<div id="DAMAGE_kilnwidth_top">
+				<div id="DAMAGE_kilnwidth_back">＜完了<br>　</div>
+				<div id="DAMAGE_kilnwidth_title">　</div>
+				<div id="DAMAGE_kilnwidth_cancel">キャンセル<br>　</div>
+			</div>
+			<div id="DAMAGE_kilnwidth_body">
+				<div id="DAMAGE_kilnwidth_row1">
+					<div id="DAMAGE_kilnwidth_pad">　</div>
+					<div id="DAMAGE_kilnwidth_body_title">　　<b>現状窯幅入力</b></div>
+					<div id="DAMAGE_kilnwidth_pad">　</div>
+				</div>
+				<div id="DAMAGE_kilnwidth_row2">
+					<div id="DAMAGE_kilnwidth_furyu_label">　　フリュー</div>
+					<div id="DAMAGE_kilnwidth_furyu_value"><input type="number" id="DAMAGE_kilnwidth_furyu_in"/></div>
+				</div>
+				<div id="DAMAGE_kilnwidth_row3">
+					<div id="DAMAGE_kilnwidth_dansu_label">　　段数</div>
+					<div id="DAMAGE_kilnwidth_dansu_value"><input type="number" id="DAMAGE_kilnwidth_dansu_in"/></div>
+				</div>
+				<div id="DAMAGE_kilnwidth_row4">
+					<div id="DAMAGE_kilnwidth_sokutei_label">　　測定値</div>
+					<div id="DAMAGE_kilnwidth_sokutei_value"><input type="number" id="DAMAGE_kilnwidth_sokutei_in"/></div>
+				</div>
+				<div id="DAMAGE_kilnwidth_pad">　</div>
+				<div id="DAMAGE_kilnwidth_csps">
+					<div id="DAMAGE_kilnwidth_cs">CS</div>
+					<div id="DAMAGE_kilnwidth_ps">PS</div>
+				</div>
+			</div>
+			<div id="DAMAGE_kilnwidth_bottom">
+			</div>
+		</div>
+		<!-- 現状窯幅入力画面 (damage_kilnwidth.html) END-->
+
+		<!-- 補修箇所リスト完了入力画面 (repair_end_input.html) START-->
+		<div id="PAGE_repair_end">
+			<div id="REPAIR_end_top">
+				<div id="REPAIR_end_back">＜戻る<br>　</div>
+				<div id="REPAIR_end_title">　</div>
+				<div id="REPAIR_end_cancel">キャンセル<br>　</div>
+			</div>
+			<div id="REPAIR_end_body">
+				<div id="REPAIR_end_pad">　</div>
+				<div id="REPAIR_end_repair_title">　</div>
+				<div id="REPAIR_end_pad">　</div>
+				<div id="REPAIR_end_sdate">
+					<div id="REPAIR_end_sdate_label">　補修開始日</div>
+					<div id="REPAIR_end_sdate_pic"><input id="REPAIR_end_sdate_picker" type="date"/></div>
+				</div>
+				<div id="REPAIR_end_pad">　</div>
+				<div id="REPAIR_end_edate">
+					<div id="REPAIR_end_edate_label">　補修終了日</div>
+					<div id="REPAIR_end_edate_pic"><input id="REPAIR_end_edate_picker" type="date"/></div>
+				</div>
+				<div id="REPAIR_end_pad">　</div>
+				<div id="REPAIR_end_pad">　</div>
+		
+				<div id="REPAIR_end_input">
+					<div id="REPAIR_end_input_in">未補修</div>
+					<div id="REPAIR_end_input_end">補修完了</div>
+				</div>
+				<div id="REPAIR_end_pad">　</div>
+				<div id="REPAIR_end_pad">　</div>
+				<div id="REPAIR_end_button_frame">
+					<div id="REPAIR_end_info_button">補修情報詳細入力</div>
+					<div id="REPAIR_end_button_pad">　</div>
+					<div id="REPAIR_end_photo_button">補修写真を見る</div>
+				</div>
+			</div>
+		<div id="REPAIR_end_bottom">
+			</div>
+		</div>
+		<!-- 補修箇所リスト完了入力画面 (repair_end_input.html) end-->
+
+		<!-- 補修情報詳細入力画面 (repair_end_info.html) START-->
+		<div id="PAGE_repair_end_info">
+			<div id="REPAIR_end_info_top">
+				<div id="REPAIR_end_info_back">＜完了<br>　</div>
+				<div id="REPAIR_end_info_title">　</div>
+				<div id="REPAIR_end_info_cancel">キャンセル<br>　</div>
+			</div>
+			<div id="REPAIR_end_info_body">
+				<div id="REPAIR_end_info_pad">　</div>
+				<div id="REPAIR_end_info_repair_title">　補修材料選択</div>
+				<div id="REPAIR_end_info_pad">　</div>
+				<div id="REPAIR_end_info_pad">　</div>
+
+				<div id="REPAIR_end_info_material" class="REPAIR_end_info_material_class">
+					<select id="REPAIR_end_info_material_sel">
+					</select>
+				</div>
+				<div id="REPAIR_end_info_pad">　</div>
+				<div id="REPAIR_end_info_pad">　</div>
+				<div id="REPAIR_end_info_use">
+					<div id="REPAIR_end_info_use_label1">使用量　</div>
+					<div id="REPAIR_end_info_use_value"><input type="number" id="REPAIR_end_info_use_in"/></div>
+					<div id="REPAIR_end_info_use_label2">個</div>
+				</div>
+				<div id="REPAIR_end_info_pad">　</div>
+				<div id="REPAIR_end_info_pad">　</div>
+			</div>
+			<div id="REPAIR_end_info_bottom">
+			</div>
+		</div>
+		<!-- 補修情報詳細入力画面 (repair_end_info.html) info-->
+
+		<!-- 補修コメント入力画面 (repair_comment_input.html) START-->
+		<div id="PAGE_repair_comment">
+			<div id="REPAIR_comment_top">
+				<div id="REPAIR_comment_back">＜完了<br>　</div>
+				<div id="REPAIR_comment_title"><b>補修コメント入力</b></div>
+				<div id="REPAIR_comment_cancel">キャンセル<br>　</div>
+			</div>
+			<div id="REPAIR_comment_body">
+				<textarea id="REPAIR_comment_in" rows="10" cols= "30"></textarea>
+			</div>
+			<div id="REPAIR_comment_bottom">
+			</div>
+		</div>
+		<!-- 補修コメント入力画面 (repair_comment.html) END-->
+
+		<!-- 補修窯幅入力画面 (repair_kilnwidth.html) START-->
+		<div id="PAGE_repair_kilnwidth">
+			<div id="REPAIR_kilnwidth_top">
+				<div id="REPAIR_kilnwidth_back">＜完了<br>　</div>
+				<div id="REPAIR_kilnwidth_title">　</div>
+				<div id="REPAIR_kilnwidth_cancel">キャンセル<br>　</div>
+			</div>
+			<div id="REPAIR_kilnwidth_body">
+				<div id="REPAIR_kilnwidth_row1">
+					<div id="REPAIR_kilnwidth_pad">　</div>
+					<div id="REPAIR_kilnwidth_body_title">　　<b>補修窯幅入力</b></div>
+					<div id="REPAIR_kilnwidth_pad">　</div>
+				</div>
+				<div id="REPAIR_kilnwidth_row2">
+					<div id="REPAIR_kilnwidth_furyu_label">　　フリュー</div>
+					<div id="REPAIR_kilnwidth_furyu_value"><input type="number" id="REPAIR_kilnwidth_furyu_in"/></div>
+				</div>
+				<div id="REPAIR_kilnwidth_row3">
+					<div id="REPAIR_kilnwidth_dansu_label">　　段数</div>
+					<div id="REPAIR_kilnwidth_dansu_value"><input type="number" id="REPAIR_kilnwidth_dansu_in"/></div>
+				</div>
+				<div id="REPAIR_kilnwidth_row4">
+					<div id="REPAIR_kilnwidth_sokutei_label">　　測定値</div>
+					<div id="REPAIR_kilnwidth_sokutei_value"><input type="number" id="REPAIR_kilnwidth_sokutei_in"/></div>
+				</div>
+				<div id="REPAIR_kilnwidth_pad">　</div>
+				<div id="REPAIR_kilnwidth_csps">
+					<div id="REPAIR_kilnwidth_cs">CS</div>
+					<div id="REPAIR_kilnwidth_ps">PS</div>
+				</div>
+			</div>
+			<div id="REPAIR_kilnwidth_bottom">
+			</div>
+		</div>
+		<!-- 補修窯幅入力画面 (repair_kilnwidth.html) END-->
+
+		<!-- 補修中設定入力画面 (repair_status.html) START-->
+		<div id="PAGE_repair_status">
+			<div id="REPAIR_status_top">
+				<div id="REPAIR_status_back">＜完了<br>　</div>
+				<div id="REPAIR_status_title"><b>補修中設定</b></div>
+				<div id="REPAIR_status_cancel">キャンセル<br>　</div>
+			</div>
+			<div id="REPAIR_status_body">
+				<div id="REPAIR_status_pad" >　</div>
+				<div id="REPAIR_status" >
+					<div id="REPAIR_status_label" >補修中</div>
+
+					<!-- 「補修中」スイッチ (iOS風) START -->	
+					<div id="REPAIR_status_switch1" class="switch">
+						<label id="REPAIR_status_switch2" class="switch__label">
+							<input id="REPAIR_status_switch3" type="checkbox" class="switch__input"/>
+							<span id="REPAIR_status_switch4" class="switch__content"></span>
+							<span id="REPAIR_status_switch5" class="switch__circle"></span>
+						</label>
+					</div>
+					<!-- 「補修中」スイッチ (iOS風) END -->
+
+				</div>	
+			</div>
+			<div id="REPAIR_status_bottom">
+			</div>
+		</div>
+		<!-- 補修中設定入力画面 (repair_status.html) END-->
+
+		
+		<!-- メインメニュー画面 -->
+		<div id="PAGE_mainmenu">
+			<div id="MAINMENU_haed">
+				<div id="MAINMENU_title">コークス炉管理</div>
+				<div id="MAINMENU_instruction">選択して下さい。</div>
+			</div>
+			<div id="MAINMENU_body">
+				<div id="TGT_MAINMENU_localreload">ローカル読込</div>
+				<div id="TGT_MAINMENU_localsave">ローカル保存</div>
+				<div id="MAINMENU_masterdownload">マスターダウンロード</div>
+				<div id="MAINMENU_setting">設定</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="right">
+		<div id="right-top">
+			<div id="misc">　詳細情報</div>
+			<div id="TGT_GOHOME">ホーム</div>
+			<div id="TGT_CLEAR">クリア</div>
+			<div id="SAVE">保存</div>
+		</div>
+		
+		<div id="dummy1">
+			<div id="SCALEL">
+				<svg id="SCALEL_svg" xmlns="http://www.w3.org/2000/svg">
+				</svg>
+			</div>
+			<div id="ZOOMER">
+				<img src="wallpaper.bmp" id="ZOOMER_wall" />
+				<svg id="ZOOMER_svg" xmlns="http://www.w3.org/2000/svg">
+				</svg>
+			</div>
+			<div id="SCALER">
+				<svg id="SCALER_svg" xmlns="http://www.w3.org/2000/svg">
+				</svg>
+			</div>
+		</div>
+		<div id="dummy2">
+			<div id="dummy2_1"></div>
+			<div id="SCALEB">
+				<svg id="SCALEB_svg" xmlns="http://www.w3.org/2000/svg">
+				</svg>
+			</div>
+			<div id="dummy2_2"></div>
+		</div>
+		
+		<div id="right-bottom">
+			<span id="TGT_LOCK">画像スライド中</span>
+			
+			<span id="DEFTYPE"><span id="DEFTYPE_title" style="color:blue;">損傷種別：</span>単段破孔</span>
+			
+			<span id="DEFTYPE_ROTEI"><span id="DEFTYPE_ROTEI_title" style="color:blue;">炉底損傷種別：</span>大</span>
+			
+			<span id="PHOTO">炉写真</span>
+			
+		</div>
+		
+		<div id="PAGE_deftype">
+		</div>
+			
+		<div id="PAGE_deftype_rotei">
+		</div>
+	</div>
+
+
+
+
+	<div id="WINDOW_search">
+		<div id="SEARCH_head" bgcolor="gray">
+			<div id="TGT_SEARCH_cancel">キャンセル</div>
+			<div id="SEARCH_title">損傷・補修箇所履歴検索</div>
+			<div id="SEARCH_search_cell">
+				<label for="SEARCH_search_start">
+					<img src="magniglass.png" style="cursor: pointer;" id="SEARCH_search_icon">
+				</label>
+				<input type="button" style="display:none" id="SEARCH_search_start">
+			</div>
+		</div>
+		<div id="SEARCH_body">
+			<div id="SEARCH_body_left">
+				<div id="SEARCH_datefrom">登録日～</div>
+				<input id="SEARCH_datefrom_picker" type="date"/>
+			</div>
+			<div id="SEARCH_body_right">
+				<div id="box1">
+					<div class="RADIO">
+					<label>
+						<input type="radio" name="radio-1" checked="checked">
+						<span class="RADIO_B" id="SEARCH_area1">君津</span>
+					</label>
+					<label>
+						<input type="radio" name="radio-1">
+						<span class="RADIO_B" id="SEARCH_area2">鹿島</span>
+					</label>
+					</div>
+				</div>
+				<div id="box2">
+					<div id="SEARCH_rodan_title">炉団NO.～</div>
+					<input id="SEARCH_rodan_value" type="text" />
+					<div id="SEARCH_tanka_title">炭化室NO.～</div>
+					<input id="SEARCH_tanka_value" type="text" />
+					<div class="RADIO" id="SEARCH_wakamatsu">
+						<label>
+							<input type="radio" name="radio-2">
+							<span class="RADIO_B" id="SEARCH_wakamatsu1">若番</span>
+						</label>
+						<label>
+							<input type="radio" name="radio-2">
+							<span class="RADIO_B" id="SEARCH_wakamatsu2">末番</span>
+						</label>
+						<label>
+							<input type="radio" name="radio-2" checked="checked">
+							<span class="RADIO_B" id="SEARCH_wakamatsu3">すべて</span>
+						</label>
+					</div>
+				</div>
+				<div id="box3">
+					<div id="SEARCH_comment_title">コメント（部分一致）</div>
+					<input id="SEARCH_comment_value" type="text" />
+				</div>
+				<div id="box4">
+					<div class="RADIO">
+						<label>
+							<input type="radio" name="radio-4" checked="checked">
+							<span class="RADIO_B" id="SEARCH_state1">すべて</span>
+						</label>
+						<label>
+							<input type="radio" name="radio-4">
+							<span class="RADIO_B" id="SEARCH_state2">補修済</span>
+						</label>
+						<label>
+							<input type="radio" name="radio-4">
+							<span class="RADIO_B" id="SEARCH_state3">未補修</span>
+						</label>
+						<label>
+							<input type="radio" name="radio-4">
+							<span class="RADIO_B" id="SEARCH_state4">補修中</span>
+						</label>
+					</div>
+				</div>
+				<div id="box5">
+					<div id="box5_title">損傷・補修結合条件</div>
+					<div id="box5-1">
+						<div class="title">単段破孔</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-1">
+								<span class="RADIOX_B" id="SEARCH_type1-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-1" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type1-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-1"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+					<div id="box5-2">
+						<div class="title">溶射</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-2">
+								<span class="RADIOX_B" id="SEARCH_type2-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-2" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type2-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-2"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+					<div id="box5-3">
+						<div class="title">多段破孔</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-3">
+								<span class="RADIOX_B" id="SEARCH_type3-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-3" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type3-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-3"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+					<div id="box5-4">
+						<div class="title">ピース煉瓦溶射</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-4">
+								<span class="RADIOX_B" id="SEARCH_type4-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-4" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type4-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-4"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+					<div id="box5-5">
+						<div class="title">煉瓦欠損</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-5">
+								<span class="RADIOX_B" id="SEARCH_type5-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-5" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type5-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-5"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+					<div id="box5-6">
+						<div class="title">モルタルパッチ</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-6">
+								<span class="RADIOX_B" id="SEARCH_type6-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-6" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type6-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-6"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+					<div id="box5-7">
+						<div class="title">任意開口</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-7">
+								<span class="RADIOX_B" id="SEARCH_type7-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-7" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type7-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-7"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+					<div id="box5-8">
+						<div class="title">セミドライ吹付け</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-8">
+								<span class="RADIOX_B" id="SEARCH_type8-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-8" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type8-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-8"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+					<div id="box5-9">
+						<div class="title">煉瓦陥没</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-9">
+								<span class="RADIOX_B" id="SEARCH_type9-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-9" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type9-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-9"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+					<div id="box5-10">
+						<div class="title">部分差替</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-10">
+								<span class="RADIOX_B" id="SEARCH_type10-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-10" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type10-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-10"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+					<div id="box5-11">
+						<div class="title">窯口狭小化</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-11">
+								<span class="RADIOX_B" id="SEARCH_type11-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-11" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type11-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-11"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+					<div id="box5-12">
+						<div class="title">広範囲部分差替</div>
+						<div class="RADIOX">
+							<label>
+								<input type="radio" name="radio5-12">
+								<span class="RADIOX_B" id="SEARCH_type12-1">AND</span>
+							</label>
+							<label>
+								<input type="radio" name="radio5-12" checked="checked">
+								<span class="RADIOX_B" id="SEARCH_type12-2">OR</span>
+							</label>
+						</div>
+						<label class="check" id="SEARCH_check5-12"><input type="checkbox"></label>
+						<div class="footer"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="WINDOW_search_overlay"></div>
+
+
+
+
+</div>
+</div>
+
+
+
+
+</body>
+
+</html>

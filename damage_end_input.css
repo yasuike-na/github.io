@@ -1,0 +1,159 @@
+/* 20191217155150 */
+/*********************************************************************/
+/* 損傷箇所リスト完了入力画面                                        */
+/*********************************************************************/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#PAGE_damage_end {
+	position: absolute;
+	top: 0px;
+	left: 1000px;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	background: #fff;
+	color: #000;
+	transition: all 300ms 0s ease;
+}
+#DAMAGE_end_top{
+	margin: 0px;
+	padding: 0px;
+	background: #D3FFD3;
+	color: #000;
+	height: 7%;
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+#DAMAGE_end_back{
+	display: inline-block;
+	/* display: table-cell; */
+	width: 18%;
+
+	text-align: left;
+	color: blue;
+	cursor: pointer;
+}
+#DAMAGE_end_title{
+	display: inline-block;
+	/* display: table-cell; */
+	width: 54%;
+	text-align: center;
+}
+#DAMAGE_end_cancel{
+	display: inline-block;
+	/* display: table-cell; */
+
+	width: 28%;
+
+	text-align: right;
+	color: blue;
+	cursor: pointer;
+}
+#DAMAGE_end_body{
+	margin: 0px;
+	padding: 0px;
+	height: 86%;
+}
+#DAMAGE_end_bottom{
+	margin: 0px;
+	padding: 0px;
+	background: #D3FFD3;
+	color: #000;
+	height: 7%;
+}
+
+
+
+#DAMAGE_end_damage_title{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	/* display: table; */
+	/* table-layout: fixed; */
+	/* border: 1px solid red; */
+}
+
+#DAMAGE_end_input{
+	margin: 0px;
+	padding: 0px;
+	height: 50;
+	width: 90%;
+	display: table;
+	table-layout: fixed;
+	padding-left: 10px;
+}
+
+#DAMAGE_end_input_in {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	border-top: 1px solid blue;
+	border-left: 1px solid blue;
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+
+	border-top-left-radius: 7px;    /* 枠線の角を丸くする */
+	border-bottom-left-radius: 7px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+
+}
+#DAMAGE_end_input_end {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	border-top: 1px solid blue;
+	/* border-left: 1px solid blue; */
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+	border-top-right-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-right-radius: 5px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+}
+#DAMAGE_end_photo{
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+
+	height: 50;
+	width: 90%;
+}
+#DAMAGE_end_photo_view{
+
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+	
+	margin: 0px;
+	padding: 0px;
+	height: 50;
+	width: 50%;
+
+	border-top: 1px solid blue;
+	border-left: 1px solid blue;
+	border-right: 1px solid blue;
+	border-bottom: 1px solid blue;
+	border-top-left-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-left-radius: 5px; /* 枠線の角を丸くする */
+	border-top-right-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-right-radius: 5px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+}
+
+.DAMAGE_end_slidein {
+	transform: translateX(-100%);
+}

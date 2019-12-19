@@ -1,0 +1,275 @@
+/* 20191217155150 */
+/*********************************************************************/
+/* 補修箇所リスト完了入力画面                                        */
+/*********************************************************************/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#PAGE_repair_end {
+	position: absolute;
+	top: 0px;
+	left: 1000px;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	background: #fff;
+	color: #000;
+	transition: all 300ms 0s ease;
+}
+#REPAIR_end_top{
+	margin: 0px;
+	padding: 0px;
+	background: #ccccff;
+	color: #000;
+	height: 7%;
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+#REPAIR_end_back{
+	display: inline-block;
+	/* display: table-cell; */
+	width: 18%;
+
+	text-align: left;
+	color: blue;
+	cursor: pointer;
+}
+#REPAIR_end_title{
+	display: inline-block;
+	/* display: table-cell; */
+	width: 54%;
+	text-align: center;
+}
+#REPAIR_end_cancel{
+	display: inline-block;
+	/* display: table-cell; */
+
+	width: 28%;
+
+	text-align: right;
+	color: blue;
+	cursor: pointer;
+}
+#REPAIR_end_body{
+	margin: 0px;
+	padding: 0px;
+	height: 86%;
+}
+#REPAIR_end_bottom{
+	margin: 0px;
+	padding: 0px;
+	background: #ccccff;
+	color: #000;
+	height: 7%;
+}
+
+
+
+#REPAIR_end_repair_title{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	/* display: table; */
+	/* table-layout: fixed; */
+	/* border: 1px solid red; */
+}
+
+#REPAIR_end_sdate {
+	height: 7%;
+	width: 90%;
+	/* background: gold; */
+
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: flex-start; /* 左寄せ */
+	align-items: center;
+	/* 中央寄せ-E */
+
+}
+#REPAIR_end_sdate_label {
+	float: left;
+	width: 40%;
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: flex-start; /* 左寄せ */
+	align-items: center;
+	/* 中央寄せ-E */
+}
+
+#REPAIR_end_sdate_pic {
+	float: left;
+	width: 60%;
+}
+
+#REPAIR_end_sdate_picker{
+	/*-webkit-appearance: none;*/	/* NG */
+	color: blue;
+	font-size: 20px;
+	width: calc(19.5vw - 30px);
+}
+
+
+#REPAIR_end_edate {
+	height: 7%;
+	width: 90%;
+	/* background: antiquewhite; */
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: flex-start; /* 左寄せ */
+	align-items: center;
+	/* 中央寄せ-E */
+}
+
+#REPAIR_end_edate_label {
+	float: left;
+	width: 40%;
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: flex-start; /* 左寄せ */
+	align-items: center;
+	/* 中央寄せ-E */
+}
+#REPAIR_end_edate_pic {
+	float: left;
+	width: 60%;
+}
+
+#REPAIR_end_edate_picker{
+	/*-webkit-appearance: none;*/	/* NG */
+	color: blue;
+	font-size: 20px;
+	width: calc(19.5vw - 30px);
+}
+
+#REPAIR_end_input{
+	margin: 0px;
+	padding: 0px;
+	height: 50;
+	width: 100%;
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+}
+
+#REPAIR_end_input_in {
+	float: left;
+
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+	
+	margin: 0px;
+	padding: 0px;
+	height: 50;
+	width: 45%;
+
+	border: 1px solid blue;
+	border-top-left-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-left-radius: 5px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+}
+#REPAIR_end_input_end {
+	float: left;
+
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+	
+	margin: 0px;
+	padding: 0px;
+	height: 50;
+	width: 45%;
+
+	border: 1px solid blue;
+	border-top-right-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-right-radius: 5px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+}
+
+#REPAIR_end_button_frame{
+	margin: 0px;
+	padding: 0px;
+	height: 50;
+	width: 100%;
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+}
+
+#REPAIR_end_info_button{
+	float: left;
+
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+	
+	margin: 0px;
+	padding: 0px;
+	height: 50;
+	width: 47%;
+
+	border: 1px solid blue;
+	border-top-left-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-left-radius: 5px; /* 枠線の角を丸くする */
+	border-top-right-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-right-radius: 5px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+}
+
+#REPAIR_end_button_pad{
+	float: left;
+
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+
+	height: 50;
+	width: 2%;
+}
+
+#REPAIR_end_photo_button{
+	float: left;
+
+	/* 中央寄せ-S */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* 中央寄せ-E */
+	
+	margin: 0px;
+	padding: 0px;
+	height: 50;
+	width: 47%;
+
+	border: 1px solid blue;
+	border-top-left-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-left-radius: 5px; /* 枠線の角を丸くする */
+	border-top-right-radius: 5px;    /* 枠線の角を丸くする */
+	border-bottom-right-radius: 5px; /* 枠線の角を丸くする */
+	background: white;
+	color: blue;
+}
+
+.REPAIR_end_slidein {
+	transform: translateX(-100%);
+}
